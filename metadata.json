@@ -1,6 +1,0 @@
-{
-  "name": "KORA - Limpieza Profesional",
-  "description": "Una aplicación premium de servicios de limpieza residencial con cotizador interactivo y diseño minimalista Sahara Silent Luxury.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
