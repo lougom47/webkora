@@ -1,0 +1,174 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Playfair+Display:italic,wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#655d54",
+                        "on-primary": "#ffffff",
+                        "surface": "#BDB2A7", 
+                        "card-linen": "rgba(247, 245, 242, 0.9)",
+                        "charcoal-grey": "#2D2926",
+                        "emerald-green": "#11b981",
+                        "dark-emerald": "#1B4332",
+                        "matte-gold": "#C5A059",
+                        "outline-variant": "#cfc5bc",
+                        "sahara-greige": "#D2C4B1",
+                        "lino-blanco": "#F9F8F6"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1200px",
+                        "margin-mobile": "16px",
+                        gutter: "24px",
+                        "section-gap": "120px",
+                        "margin-desktop": "64px",
+                        unit: "8px"
+                    },
+                    fontFamily: {
+                        "body": ["Manrope", "sans-serif"],
+                        "accent": ["Playfair Display", "serif"],
+                        "montserrat": ["Montserrat", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "300"}],
+                        "headline-h1": ["32px", {lineHeight: "1.3", fontWeight: "400"}],
+                        "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}],
+                        "label-sm": ["12px", {letterSpacing: "0.05em", fontWeight: "700"}]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-charcoal-grey font-body selection:bg-matte-gold/30 min-h-screen" style="background-color: #cfc6be;">
+<!-- Navigation -->
+<header class="fixed top-0 w-full backdrop-blur-md z-50 flex justify-between items-center px-margin-desktop py-6 bg-[#e8e3e0]/80">
+<div class="flex items-center gap-unit">
+<span class="material-symbols-outlined text-charcoal-grey" data-icon="menu">menu</span>
+<span class="text-2xl tracking-[0.2em] text-charcoal-grey uppercase font-['Montserrat'] font-normal">KORA</span>
+</div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-medium hover:text-charcoal-grey transition-colors uppercase text-lg tracking-widest text-charcoal-grey text-charcoal-grey/70" href="#">Servicios</a>
+<a class="font-medium hover:text-charcoal-grey transition-colors uppercase text-lg tracking-widest border-b-2 border-charcoal-grey text-charcoal-grey" href="#">Método Kora</a>
+<a class="text-charcoal-grey/70 font-medium hover:text-charcoal-grey transition-colors uppercase text-lg tracking-widest" href="#">Preguntas Frecuentes</a>
+</nav>
+</header>
+<main class="max-w-[1280px] mx-auto min-h-[1024px] pt-12">
+<!-- Hero Section -->
+<section class="grid lg:grid-cols-1 gap-section-gap py-section-gap items-start px-margin-desktop">
+<div class="col-span-full backdrop-blur-md p-12 rounded-2xl border border-white/30 -mt-[35px] bg-[#e8e3e0]/80">
+<div class="grid lg:grid-cols-2 gap-section-gap items-center">
+<!-- Left Column: Copy -->
+<div class="flex flex-col gap-8">
+<div>
+<p class="text-label-sm font-bold uppercase tracking-[0.2em] text-charcoal-grey/60 mb-6">LIMPIEZA PROFESIONAL</p>
+<h1 class="text-display-lg font-accent text-charcoal-grey leading-tight mb-8">
+                            No solo limpiamos casas, le ayudamos a recuperar el control de su tiempo.
+                        </h1>
+<p class="text-body-lg text-charcoal-grey/80 font-montserrat leading-relaxed">Hemos estructurado cada movimiento de nuestro protocolo. Nos encargamos de todo el personal e insumos por usted. Sin gestiones externas, sin interrupciones. Solo eficiencia técnica y discreción absoluta.</p>
+</div>
+<div class="flex flex-wrap gap-gutter mt-4">
+<button class="bg-[#11b981] text-white px-8 py-4 text-label-sm uppercase tracking-widest shadow-lg hover:brightness-110 transition-all font-bold" onclick="window.location.href='/servicios#calculadora'">cotizar AHORA</button>
+<button class="flex items-center gap-2 border-b border-charcoal-grey pb-1 text-label-sm uppercase tracking-widest text-charcoal-grey font-bold" onclick="window.location.href='/servicios#modalidades'">
+                            VER QUÉ INCLUYE<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Image -->
+<div class="relative">
+<div class="rounded-xl overflow-hidden soft-shadow border border-white/40">
+<img alt="Professional Staff" class="w-full h-auto object-cover max-h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRhUCOLTTK69nVfNW-TMtFHMS2yl_ZgIOH8v3C2C1RCLbpW2a-UbTNHWKLxLVAgzuC8fbbrancXcAeLxhhlxY9atsFjc_244s7US6TzfxtfpA8azNC_5tuMpMFLZOrMC-7k-PEKoxzXZa2iiujHrQw35u81xFp7V3mBGh_eXPoIJ7S2ZMw-ypiaul-2A4P2JDqClG6JylA_HoEVnVG-MLLyf8jcaWGDJbhrRYZ17Y_6b8kMyMuCKezn6g1Pn9R4cb1_T_4R2mKYmDcRw">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Modalidades de Limpieza Section -->
+<section class="bg-sahara-greige w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-margin-desktop pt-[82px] pb-section-gap" style="background-color: #e8e3e0;">
+<div class="max-w-[1280px] mx-auto">
+<div class="-mt-[40px] mb-16">
+<div class="border-t border-charcoal-grey/20"></div>
+<h2 class="text-display-lg font-accent text-charcoal-grey text-center py-8">+7 AÑOS DE EXPERIENCIA</h2>
+<div class="border-b border-charcoal-grey/20"></div>
+</div>
+<div class="grid gap-section-gap grid-cols-1">
+<div class="col-span-full bg-lino-blanco p-12 md:p-20 rounded-xl shadow-sm flex flex-col items-center text-center max-w-4xl mx-auto">
+<h3 class="text-display-lg font-body text-charcoal-grey mb-12 font-bold md:text-6xl">METODO KORA</h3>
+<div class="grid md:grid-cols-3 gap-8 mb-12 w-full">
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-4xl" style="color: rgb(194, 166, 121);">cleaning_services</span>
+<p class="text-charcoal-grey/80 font-montserrat leading-relaxed text-xl md:text-2xl font-medium !leading-snug">
+                                Nuestro personal llega, opera y se retira con logística propia.
+                            </p>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-4xl" style="color: rgb(194, 166, 121);">local_shipping</span>
+<p class="text-charcoal-grey/80 font-montserrat leading-relaxed text-xl md:text-2xl font-medium !leading-snug">
+                                Proveemos el transporte, insumos y la alimentación de nuestro talento.
+                            </p>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-4xl" style="color: rgb(194, 166, 121);">house</span>
+<p class="text-charcoal-grey/80 font-montserrat leading-relaxed text-xl md:text-2xl font-medium !leading-snug">
+                                Su única tarea es abrir la puerta y, después, respirar la calma.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<p class="text-center mt-12 font-montserrat text-label-sm text-charcoal-grey/60 uppercase tracking-widest">A diferencia de la informalidad del servicio tradicional en Venezuela,&nbsp;<span class="" style="letter-spacing: 0.1em;">en KORA respetamos LA INTIMIDAD de su patrimonio.</span></p>
+</div>
+</section>
+<!-- Discretion Section -->
+</main>
+<section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-margin-desktop pt-24 pb-0" style="background-color: #e8e3e0;">
+<div class="max-w-[1280px] mx-auto flex flex-col items-center text-center">
+<button class="bg-[#11b981] text-white px-24 py-10 text-3xl md:text-4xl uppercase tracking-[0.3em] shadow-2xl hover:brightness-105 transition-all font-bold" style="transform: translateY(-3cm);" onclick="window.location.href='/servicios#calculadora'">
+            RESERVAR DESDE $30
+        </button>
+</div>
+</section><footer class="py-12 px-margin-desktop mt-4" style="background-color: #f5f5f2; color: #4d463d;">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<span class="text-xl tracking-[0.2em] uppercase font-['Montserrat'] font-medium">KORA</span>
+<div class="flex flex-wrap justify-center gap-gutter text-[11px] font-bold uppercase tracking-widest opacity-80">
+<a class="hover:opacity-100 transition-opacity" href="#"><br></a>
+<a class="hover:opacity-100 transition-opacity" href="#"><br></a>
+<a class="hover:opacity-100 transition-opacity" href="#"><br></a>
+</div>
+<p class="text-[11px] opacity-60 text-center">
+            2019 KORA™ Premium Residential Cleaning. Servicio de limpieza en Caracas.
+        </p>
+</div>
+</footer>
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es" style=""><head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
+    function calculate() {
+        const slider = document.getElementById('surface-slider');
+        const surfaceDisplay = document.getElementById('surface-display');
+        const talentCount = document.getElementById('talent-count');
+        const petsExtra = document.getElementById('pets-extra');
+        const weekendExtra = document.getElementById('weekend-extra');
+        const baseCostEl = document.getElementById('base-cost');
+        const extraTalentEl = document.getElementById('extra-talent-cost');
+        const totalPriceEl = document.getElementById('total-price');
+        const maxMsg = document.getElementById('max-surface-msg');
+
+        const m2 = parseInt(slider.value);
+        surfaceDisplay.textContent = m2;
+
+        // Pricing Logic: $30 up to 120m2. $1.5 per additional m2.
+        let baseRate = 30;
+        if (m2 > 120) {
+            baseRate += (m2 - 120) * 1.5;
+        }
+
+        // Talent Logic
+        let specialists = 1;
+        if (m2 > 240) specialists = 3;
+        else if (m2 > 120) specialists = 2;
+        
+        let petFee = petsExtra.checked ? 30 : 0;
+        
+        let finalSpecialists = specialists + (petsExtra.checked ? 1 : 0);
+        
+        // Weekend Fee: $6 multiplied by the number of specialists
+        let weekendFee = weekendExtra.checked ? (6 * finalSpecialists) : 0; 
+        
+        talentCount.textContent = finalSpecialists;
+
+        // Displaying breakdown
+        baseCostEl.textContent = `$${baseRate.toFixed(2)}`;
+        extraTalentEl.textContent = `$${(petFee + weekendFee).toFixed(2)}`;
+        
+        const total = baseRate + petFee + weekendFee;
+        totalPriceEl.textContent = `$${total.toFixed(2)}`;
+
+        // Max surface message
+        if (m2 >= 300) {
+            maxMsg.classList.remove('hidden');
+        } else {
+            maxMsg.classList.add('hidden');
+        }
+    }
+
+    // Initialize calculation on load
+    calculate();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Playfair+Display:italic,wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#655d54",
+                        "on-primary": "#ffffff",
+                        "surface": "#BDB2A7", 
+                        "card-linen": "rgba(247, 245, 242, 0.9)",
+                        "charcoal-grey": "#2D2926",
+                        "emerald-green": "#10B981",
+                        "dark-emerald": "#1B4332",
+                        "matte-gold": "#C5A059",
+                        "outline-variant": "#cfc5bc",
+                        "sahara-greige": "#D2C4B1",
+                        "lino-blanco": "#F9F8F6"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1200px",
+                        "margin-mobile": "16px",
+                        gutter: "24px",
+                        "section-gap": "120px",
+                        "margin-desktop": "64px",
+                        unit: "8px"
+                    },
+                    fontFamily: {
+                        "body": ["Manrope", "sans-serif"],
+                        "accent": ["Playfair Display", "serif"],
+                        "montserrat": ["Montserrat", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "300"}],
+                        "headline-h1": ["32px", {lineHeight: "1.3", fontWeight: "400"}],
+                        "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}],
+                        "label-sm": ["12px", {letterSpacing: "0.05em", fontWeight: "700"}]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #2D2926;
+            cursor: pointer;
+            margin-top: -8px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(45, 41, 38, 0.2);
+            border-radius: 2px;
+        }
+        .tooltip:hover .tooltip-content {
+            display: block;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-charcoal-grey font-body selection:bg-matte-gold/30 min-h-screen" style="background-color: rgb(207, 198, 190);">
+<!-- Navigation -->
+<header class="fixed top-0 w-full backdrop-blur-md z-50 flex justify-between items-center px-margin-desktop py-6 bg-[#e8e3e0]/80">
+<div class="flex items-center gap-unit">
+<span class="material-symbols-outlined text-charcoal-grey" data-icon="menu">menu</span>
+<span class="text-2xl tracking-[0.2em] text-charcoal-grey uppercase font-['Montserrat'] font-normal">KORA</span>
+</div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-medium hover:text-charcoal-grey transition-colors uppercase text-lg tracking-widest border-b-2 border-charcoal-grey text-charcoal-grey" href="#">Servicios</a>
+<a class="text-charcoal-grey/70 font-medium hover:text-charcoal-grey transition-colors uppercase text-lg tracking-widest" href="#">Método Kora</a>
+<a class="text-charcoal-grey/70 font-medium hover:text-charcoal-grey transition-colors uppercase text-lg tracking-widest" href="#">Preguntas Frecuentes</a>
+</nav>
+</header>
+<main class="max-w-[1280px] mx-auto pt-12">
+<!-- Hero Section -->
+<section class="grid lg:grid-cols-1 gap-section-gap py-section-gap items-start px-margin-desktop">
+<div class="col-span-full backdrop-blur-md p-12 rounded-2xl border border-white/30 -mt-[35px] bg-[#e8e3e0]/80">
+<div class="grid lg:grid-cols-12 gap-gutter items-center">
+<!-- Brand Message (Narrower) -->
+<div class="lg:col-span-5 flex flex-col gap-gutter overflow-hidden">
+<div class="mb-6">
+<p class="text-label-sm font-bold uppercase tracking-[0.2em] text-charcoal-grey/60 font-body md:text-[24px] whitespace-nowrap">LIMPIEZA PROFESIONAL</p>
+</div>
+<div class="flex flex-col gap-gutter h-full justify-between">
+<div class="relative flex-1 flex items-end">
+<img alt="Professional Staff" class="w-full h-auto object-contain drop-shadow-2xl max-h-[450px] mx-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uj8dDOn-dBfos5PpfEyUZCamqweuGegk4hU4PPblvCjCsmJXfCdYI_ynpDDVpzlid2Y3uI88i9e8v-SkBTkJsUy-eSAwpWTdAxjMdZnnEw_Wxuo7eKTrYgsUw5qiPuIBOrknL8NSxdyJ2THMILrOdATMdUDk6fHPxNv3m1zzVk2QZz97pfjhanm6xQuVv6w1eIzPLvjpr5zXSg3b4_APq-gqFQHo7onLeWU2a0EHoBDm4sxR241QpSw3hjdwYe-ElIkISP7V6iKTw"/>
+</div>
+<div class="mt-8 flex gap-gutter">
+</div>
+</div>
+</div>
+<!-- Cotizador/Calculator Card (Wider) -->
+<div class="lg:col-span-7 bg-card-linen backdrop-blur-md p-10 rounded-xl soft-shadow border border-white/40" id="calculator-section">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-bold text-xl uppercase tracking-wider text-charcoal-grey">Cotizador</h3>
+<div class="text-right">
+<span class="text-2xl font-bold text-charcoal-grey" id="surface-display">120</span>
+<span class="text-charcoal-grey/60 ml-1">m²</span>
+</div>
+</div>
+<form class="space-y-6" oninput="calculate()">
+<div class="grid md:grid-cols-2 gap-gutter items-end mb-8">
+<div class="space-y-3">
+<label class="text-label-sm uppercase text-charcoal-grey/60 block">Superficie</label>
+<input class="w-full h-1 bg-charcoal-grey/20 appearance-none rounded-full accent-charcoal-grey" id="surface-slider" max="300" min="40" type="range" value="120"/>
+<div class="flex justify-between text-[10px] text-charcoal-grey/40">
+<span class="">40m²</span>
+<span class="">300m²</span>
+</div>
+</div>
+<div class="bg-white/40 backdrop-blur-sm p-4 rounded-lg flex items-center justify-between border border-charcoal-grey/10 h-fit mb-[4px]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-charcoal-grey">groups</span>
+<div>
+<p class="text-sm font-bold text-charcoal-grey"><span class="" id="talent-count">1</span> Especialista(s)</p>
+<p class="text-[11px] text-charcoal-grey/60 leading-tight">Talento KORA certificado</p>
+</div>
+</div>
+<div class="relative tooltip">
+<span class="material-symbols-outlined text-charcoal-grey/40 cursor-help text-lg">info</span>
+<div class="tooltip-content hidden absolute bottom-full right-0 mb-2 w-48 bg-charcoal-grey text-white text-[10px] p-2 rounded shadow-xl z-10 leading-normal">Incluye: productos de limpieza, uniforme, traslado y alimentación del talento.</div>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-gutter mb-8">
+<!-- Sensory Signature -->
+<div class="space-y-2">
+<label class="text-label-sm uppercase text-charcoal-grey/60 block">Firma Sensorial</label>
+<select class="w-full bg-white/60 border border-charcoal-grey/20 rounded p-3 text-sm focus:ring-1 focus:ring-matte-gold outline-none text-charcoal-grey">
+<option>Nordic Pine Essence</option>
+<option>Pure Marine Breeze</option>
+<option>Cherry Blossom</option>
+</select>
+<p class="text-[10px] text-charcoal-grey/50 italic leading-relaxed">
+                                    Nuestras bases desinfectantes de alta gama eliminan patógenos dejando una estela de pureza.
+                                </p>
+</div>
+<!-- Extras -->
+<div class="space-y-3">
+<label class="flex items-start gap-3 group cursor-pointer">
+<input class="mt-1 rounded border-charcoal-grey/30 text-charcoal-grey focus:ring-charcoal-grey h-4 w-4" id="pets-extra" type="checkbox"/>
+<div>
+<span class="text-sm font-medium text-charcoal-grey">Mascotas (+$30)</span>
+<p class="text-[10px] text-charcoal-grey/50">Productos especiales y +1 talento.</p>
+</div>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input class="rounded border-charcoal-grey/30 text-charcoal-grey focus:ring-charcoal-grey h-4 w-4" type="checkbox"/>
+<div class="flex items-center gap-2 relative group/art">
+<span class="text-sm font-medium text-charcoal-grey">Objetos de Arte</span>
+<span class="material-symbols-outlined text-[16px] text-charcoal-grey/40 cursor-help">info</span>
+<div class="hidden group-hover/art:block absolute bottom-full left-0 mb-2 w-64 bg-charcoal-grey text-white text-[10px] p-3 rounded shadow-xl z-20 leading-relaxed">
+    Incluye esculturas, cuadros, figuras de porcelana, antigüedades o piezas decorativas de alto valor. Nuestro personal tiene instrucciones estrictas de no manipular, limpiar ni mover estos elementos para evitar accidentes o daños irreparables.
+</div>
+</div>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input class="rounded border-charcoal-grey/30 text-charcoal-grey focus:ring-charcoal-grey h-4 w-4" id="weekend-extra" type="checkbox"/>
+<div class="flex items-center gap-2">
+<span class="text-sm font-medium text-charcoal-grey">Fin de semana/feriado</span>
+</div>
+</label>
+</div>
+</div>
+<div class="hidden text-xs text-charcoal-grey font-medium italic border-t border-charcoal-grey/10 pt-4 mb-4" id="max-surface-msg">
+                            Para superficies mayores a 300m², contáctenos vía WhatsApp para una cotización personalizada.
+                        </div>
+<div class="pt-6 border-t border-charcoal-grey/20">
+<div class="flex flex-wrap justify-between gap-x-8 gap-y-2 mb-6">
+<div class="flex gap-6">
+<div class="text-[11px] text-charcoal-grey/60">
+<span class="block opacity-70">Inversión Base / Mts</span>
+<span class="text-charcoal-grey font-semibold" id="base-cost">$30.00</span>
+</div>
+<div class="text-[11px] text-charcoal-grey/60">
+<span class="block opacity-70">Cargos Adicionales</span>
+<span class="text-charcoal-grey font-semibold" id="extra-talent-cost">$0.00</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col">
+<p class="text-label-sm uppercase text-charcoal-grey/40 mb-1">Inversión Estimada</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-bold text-charcoal-grey tracking-tight" id="total-price">$30.00</span>
+<span class="text-xs text-charcoal-grey/40">USD</span>
+</div>
+</div>
+<div class="flex-1 md:max-w-[280px] w-full">
+<a class="block w-full bg-emerald-green text-white py-4 rounded-lg font-bold text-label-sm uppercase tracking-widest hover:brightness-105 transition-all shadow-md text-center" href="https://wa.me/584122126159" target="_blank">
+                                        RESERVAR
+                                    </a>
+<p class="text-center text-[10px] text-charcoal-grey/40 mt-2 uppercase tracking-tighter">
+                                        Respuesta inmediata vía WhatsApp
+                                    </p>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Modalidades de Limpieza Section -->
+<section class="bg-sahara-greige w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-margin-desktop pt-[82px] pb-section-gap" style="background-color: #e8e3e0;">
+<div class="max-w-[1280px] mx-auto">
+<div class="-mt-[40px] mb-16">
+<div class="border-t border-charcoal-grey/20"></div>
+<h2 class="text-display-lg font-accent text-charcoal-grey text-center py-8">MODALIDADES DE LIMPIEZA</h2>
+<div class="border-b border-charcoal-grey/20"></div>
+</div>
+<div class="grid lg:grid-cols-2 gap-section-gap">
+<!-- Card 1: Sinfonía de Orden -->
+<div class="bg-lino-blanco p-10 rounded-xl card-hover transition-all duration-500 flex flex-col">
+<div class="mb-8 overflow-hidden rounded-lg">
+<img alt="Sinfonía de Orden - Japandi Style" class="w-full h-[300px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGkXeyqdSCCqvedbqps05NKqhp5ZskJ7NfX0xNmpLB-XERCPK91-o2Gd0q5vmjeTzwVrwtPgv6J2Srxss60x2pUXhj7Z0U7gn3UY51NNXN7PcQEK4XVHOUdpSJ8NYRhctwKiJASdowUXUqE_yV6U3ngLHJ3MKI2BdFkI4IaJHIKMLe_gfREJzzfikjOMWUgFE95L8Da3PpSjC3LhTv64tAW21EvoTLfVg4nvzQUOXnmHARHlbxCKGc0avNJ0M-j71MAVw02FvfbEHqVA"/>
+</div>
+<div class="flex-1 space-y-6">
+<div>
+<h3 class="text-headline-h1 text-charcoal-grey font-body font-bold">Sinfonía de Orden</h3>
+<p class="font-montserrat text-label-sm uppercase tracking-widest text-charcoal-grey/60 mt-1">(Mantenimiento Recurrente)</p>
+</div>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-matte-gold shrink-0">ink_pen</span>
+<p class="font-montserrat text-sm leading-relaxed text-charcoal-grey"><strong class="font-bold">Incluye:</strong> Despolvado y limpieza superficial de mobiliario y repisas. Aspirado y limpieza de pisos en todas las áreas comunes.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-matte-gold shrink-0">air</span>
+<p class="font-montserrat text-sm leading-relaxed text-charcoal-grey">Higienización estándar de baños (losas, griferías y espejos). Limpieza externa de topes de cocina y superficies de trabajo. Cambio de bolsas de desechos.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-matte-gold shrink-0">key</span>
+<p class="font-montserrat text-sm leading-relaxed text-charcoal-grey">
+<strong class="font-bold">No incluye:</strong> remoción de cal petrificada, grasa interna de electrodomésticos ni limpieza post-obra.
+                                </p>
+</li>
+</ul>
+<div class="pt-8 mt-auto">
+<a class="block w-full border-2 border-charcoal-grey py-4 text-label-sm font-bold uppercase tracking-[0.2em] hover:bg-charcoal-grey hover:text-white transition-colors text-center" href="#calculator-section">
+                                AGENDAR DESDE $30
+                            </a>
+</div>
+</div>
+</div>
+<!-- Card 2: Restauración Vital -->
+<div class="bg-lino-blanco p-10 rounded-xl card-hover transition-all duration-500 flex flex-col">
+<div class="mb-8 overflow-hidden rounded-lg">
+<img alt="Restauración Vital - Deep Clean" class="w-full h-[300px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx6jd2adpCRfYazbPAwpiEiIhh_S_G59sVYVwhNt3rkoVwYhUjA4Z3Au9jEZsd-scY4KkWT0ZeLjmhl3TC2tgqmOr-tnsPWm8g1fU4bOt12ZWkc_QfNUVpj5NreJEhpYxTd8yPuyf2a-OouSMEbMPFdvS1zdqqBQfSh9w1y7kQ-mZ-DTK4a6-XqYL4a3_P1VpY_IJX20WfDY27iQNXfFvoUC8NVesjQZN-NcuX1OD50Ax1HnW40CFVW26fZ__xRJsW7r6bOdWAn7JYMg"/>
+</div>
+<div class="flex-1 space-y-6">
+<div>
+<h3 class="text-headline-h1 text-charcoal-grey font-body font-bold">Restauración Vital</h3>
+<p class="font-montserrat text-label-sm uppercase tracking-widest text-charcoal-grey/60 mt-1">(Intervención Profunda)</p>
+</div>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-matte-gold shrink-0">construction</span>
+<p class="font-montserrat text-sm leading-relaxed text-charcoal-grey">
+<strong class="font-bold">Incluye:</strong> Remoción mecánica de cal incrustada y manchas minerales en cristales de ducha. Desengrase profundo e interno de hornos, campanas y cocinas.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-matte-gold shrink-0">diamond</span>
+<p class="font-montserrat text-sm leading-relaxed text-charcoal-grey">Desinfección detallada y lavado a fondo de baños. Limpieza profunda de perfiles de ventanas, rieles y marcos de puertas.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-matte-gold shrink-0">home</span>
+<p class="font-montserrat text-sm leading-relaxed text-charcoal-grey">
+<strong class="font-bold">Renovación total:</strong> Ideal para mudanzas, post-obra; post-evento o periodos largos sin uso.
+                                </p>
+</li>
+</ul>
+<div class="pt-8 mt-auto">
+<a class="block w-full text-white py-4 text-label-sm font-bold uppercase tracking-[0.2em] hover:brightness-110 transition-all shadow-lg text-center" href="https://wa.me/584122126159" style="background-color: rgb(17, 185, 129);" target="_blank">
+                                COTIZAR POR WHATSAPP
+                            </a>
+</div>
+</div>
+</div>
+</div>
+<p class="text-center mt-12 font-montserrat text-label-sm text-charcoal-grey/60 uppercase tracking-widest">
+                Ambos servicios incluyen transporte, insumos premium y gestión logística total
+            </p>
+</div>
+</section>
+<!-- Brief Services Section -->
+</main>
+<footer class="py-12 px-margin-desktop" style="background-color: #f5f5f2; color: #4d463d;">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter"><span class="text-xl tracking-[0.2em] uppercase font-['Montserrat'] font-medium">KORA</span>
+<div class="flex flex-wrap justify-center gap-gutter text-[11px] font-bold uppercase tracking-widest opacity-80">
+<a class="hover:opacity-100 transition-opacity" href="#"><br/></a>
+<a class="hover:opacity-100 transition-opacity" href="#"><br/></a>
+<a class="hover:opacity-100 transition-opacity" href="#"><br/></a>
+</div>
+<p class="text-[11px] opacity-60 text-center">
+    2019 KORA™ Premium Residential Cleaning. Servicio de limpieza en Caracas.
+</p></div>
+</footer>
+<script>
+    function calculate() {
+        const slider = document.getElementById('surface-slider');
+        const surfaceDisplay = document.getElementById('surface-display');
+        const talentCount = document.getElementById('talent-count');
+        const petsExtra = document.getElementById('pets-extra');
+        const weekendExtra = document.getElementById('weekend-extra');
+        const baseCostEl = document.getElementById('base-cost');
+        const extraTalentEl = document.getElementById('extra-talent-cost');
+        const totalPriceEl = document.getElementById('total-price');
+        const maxMsg = document.getElementById('max-surface-msg');
+
+        const m2 = parseInt(slider.value);
+        surfaceDisplay.textContent = m2;
+
+        // Pricing Logic: $30 up to 120m2. $1.5 per additional m2.
+        let baseRate = 30;
+        if (m2 > 120) {
+            baseRate += (m2 - 120) * 1.5;
+        }
+
+        // Talent Logic
+        let specialists = 1;
+        if (m2 > 240) specialists = 3;
+        else if (m2 > 120) specialists = 2;
+        
+        let petFee = petsExtra.checked ? 30 : 0;
+        
+        let finalSpecialists = specialists + (petsExtra.checked ? 1 : 0);
+        
+        // Weekend Fee: $6 multiplied by the number of specialists
+        let weekendFee = weekendExtra.checked ? (6 * finalSpecialists) : 0; 
+        
+        talentCount.textContent = finalSpecialists;
+
+        // Displaying breakdown
+        baseCostEl.textContent = `$${baseRate.toFixed(2)}`;
+        extraTalentEl.textContent = `$${(petFee + weekendFee).toFixed(2)}`;
+        
+        const total = baseRate + petFee + weekendFee;
+        totalPriceEl.textContent = `$${total.toFixed(2)}`;
+
+        // Max surface message
+        if (m2 >= 300) {
+            maxMsg.classList.remove('hidden');
+        } else {
+            maxMsg.classList.add('hidden');
+        }
+    }
+
+    // Initialize calculation on load
+    calculate();
+</script>
+</body></html>
