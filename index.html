@@ -59,6 +59,33 @@
 
     // Initialize calculation on load
     calculate();
+        // Sistema para resaltar automáticamente el botón del menú activo
+    const menuLinks = document.querySelectorAll('nav a');
+    const webSections = document.querySelectorAll('#cotizador, #tipos-limpieza, #preguntas');
+
+    window.addEventListener('scroll', () => {
+        let currentActiveSection = "";
+        
+        webSections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            // Margen de 150px para compensar el espacio que ocupa la barra fija de arriba
+            if (window.scrollY >= sectionTop - 150) {
+                currentActiveSection = section.getAttribute('id');
+            }
+        });
+
+        menuLinks.forEach(link => {
+            // Primero limpiamos todos los botones dejándolos opacos y sin línea
+            link.classList.remove('text-charcoal-grey', 'border-b-2', 'border-charcoal-grey');
+            link.classList.add('text-charcoal-grey/70');
+            
+            // Si el enlace coincide con la sección visible en pantalla, lo resaltamos
+            if (link.getAttribute('href') === `#${currentActiveSection}`) {
+                link.classList.remove('text-charcoal-grey/70');
+                link.classList.add('text-charcoal-grey', 'border-b-2', 'border-charcoal-grey');
+            }
+        });
+    });
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Playfair+Display:italic,wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
