@@ -74,15 +74,15 @@
             }
         });
 
-        menuLinks.forEach(link => {
-            // Primero limpiamos todos los botones dejándolos opacos y sin línea
-            link.classList.remove('text-charcoal-grey', 'border-b-2', 'border-charcoal-grey');
-            link.classList.add('text-charcoal-grey/70');
+       menuLinks.forEach(link => {
+            // Primero "apagamos" todos los botones (letras normales y sin línea)
+            link.classList.remove('font-bold', 'text-black', 'border-b-4', 'border-[#11b981]', 'text-charcoal-grey', 'border-b-2');
+            link.classList.add('text-charcoal-grey/70', 'font-medium');
             
-            // Si el enlace coincide con la sección visible en pantalla, lo resaltamos
+            // Si el botón coincide con la sección en pantalla, lo "encendemos"
             if (link.getAttribute('href') === `#${currentActiveSection}`) {
-                link.classList.remove('text-charcoal-grey/70');
-                link.classList.add('text-charcoal-grey', 'border-b-2', 'border-charcoal-grey');
+                link.classList.remove('text-charcoal-grey/70', 'font-medium');
+                link.classList.add('font-bold', 'text-black', 'border-b-4', 'border-[#11b981]');
             }
         });
     });
