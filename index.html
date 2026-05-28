@@ -7,6 +7,18 @@
     <title>Método KORA</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Aquí agregamos la magia del fondo -->
+    <style>
+        body {
+            background-image: url('fondo.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+    </style>
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
     function calculate() {
@@ -169,8 +181,8 @@
         }
     </style>
 </head>
-<body class="text-charcoal-grey font-body selection:bg-matte-gold/30 min-h-screen" style="background-color: rgb(207, 198, 190);">
-<!-- Navigation -->
+<body class="text-charcoal-grey font-body selection:bg-matte-gold/30 min-h-screen">
+    <!-- Navigation -->
 <header class="fixed top-0 w-full backdrop-blur-md z-50 flex justify-between items-center px-margin-desktop py-6 bg-[#e8e3e0]/80">
     <div class="flex items-center gap-unit">
         <button onclick="toggleMenu()" class="block md:hidden p-2 text-charcoal-grey focus:outline-none">
