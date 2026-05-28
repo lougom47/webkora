@@ -198,9 +198,10 @@
 </header>
 <main id="cotizador" class="max-w-[1280px] mx-auto min-h-[1024px] pt-12">
     <div class="scale-105 origin-top transform">
-        <!-- Hero Section -->
+       <!-- Hero Section -->
 <section class="grid lg:grid-cols-1 gap-section-gap py-section-gap items-start px-margin-desktop">
-<div class="col-span-full backdrop-blur-md p-12 rounded-2xl border border-white/30 -mt-[35px] bg-[#e8e3e0]/80">
+<!-- 1. Contenedor ahora transparente (sin el color de fondo) -->
+<div class="col-span-full p-12 -mt-[35px]">
 <div class="grid lg:grid-cols-12 gap-gutter items-center">
 <!-- Brand Message (Narrower) -->
 <div class="lg:col-span-5 flex flex-col gap-gutter overflow-hidden">
@@ -209,7 +210,8 @@
 </div>
 <div class="flex flex-col gap-gutter h-full justify-between">
 <div class="relative flex-1 flex items-end">
-<img alt="Professional Staff" class="w-full h-auto object-contain drop-shadow-2xl max-h-[450px] mx-auto" src="portada.png"/>
+<!-- 2. Tu foto ahora con forma de arco espectacular -->
+<img alt="Professional Staff" class="w-full h-full object-cover rounded-t-full rounded-b-[40px] shadow-2xl shadow-black/10 max-h-[550px] mx-auto" src="portada.png"/>
 </div>
 <div class="mt-8 flex gap-gutter">
 </div>
