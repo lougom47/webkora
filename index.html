@@ -23,58 +23,8 @@
     </style>
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-    function calculate() {
-        const slider = document.getElementById('surface-slider');
-        const surfaceDisplay = document.getElementById('surface-display');
-        const talentCount = document.getElementById('talent-count');
-        const petsExtra = document.getElementById('pets-extra');
-        const weekendExtra = document.getElementById('weekend-extra');
-        const baseCostEl = document.getElementById('base-cost');
-        const extraTalentEl = document.getElementById('extra-talent-cost');
-        const totalPriceEl = document.getElementById('total-price');
-        const headerPriceEl = document.getElementById('header-price'); 
-        const maxMsg = document.getElementById('max-surface-msg');
 
-        const m2 = parseInt(slider.value);
-        surfaceDisplay.textContent = m2;
-
-        let baseRate = 30;
-        if (m2 > 120) {
-            baseRate += (m2 - 120) * 1.5;
-        }
-
-        let specialists = 1;
-        if (m2 > 240) specialists = 3;
-        else if (m2 > 120) specialists = 2;
-        
-        let petFee = petsExtra.checked ? 30 : 0;
-        let finalSpecialists = specialists + (petsExtra.checked ? 1 : 0);
-        let weekendFee = weekendExtra.checked ? (6 * finalSpecialists) : 0; 
-        
-        talentCount.textContent = finalSpecialists;
-
-        baseCostEl.textContent = `$${baseRate.toFixed(2)}`;
-        extraTalentEl.textContent = `$${(petFee + weekendFee).toFixed(2)}`;
-        
-        const total = baseRate + petFee + weekendFee;
-        const formattedTotal = `$${total.toFixed(2)}`;
-
-        // Actualizamos AMBOS precios
-        totalPriceEl.textContent = formattedTotal;
-        headerPriceEl.textContent = formattedTotal;
-
-        if (m2 >= 300) {
-            maxMsg.classList.remove('hidden');
-        } else {
-            maxMsg.classList.add('hidden');
-        }
-    }
-
-    // Inicializar y detectar cambios en inputs
-    document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculate));
-    calculate();
-</script>
+<script>
     // Script para resaltar botones de la nueva barra
     window.addEventListener('scroll', () => { 
         let currentActiveSection = ""; 
@@ -362,59 +312,6 @@
 </script>
 <!-- Brief Services Section -->
 </main>
-<script>
-    function calculate() {
-        const slider = document.getElementById('surface-slider');
-        const surfaceDisplay = document.getElementById('surface-display');
-        const talentCount = document.getElementById('talent-count');
-        const petsExtra = document.getElementById('pets-extra');
-        const weekendExtra = document.getElementById('weekend-extra');
-        const baseCostEl = document.getElementById('base-cost');
-        const extraTalentEl = document.getElementById('extra-talent-cost');
-        const totalPriceEl = document.getElementById('total-price');
-        const maxMsg = document.getElementById('max-surface-msg');
-
-        const m2 = parseInt(slider.value);
-        surfaceDisplay.textContent = m2;
-
-        // Pricing Logic: $30 up to 120m2. $1.5 per additional m2.
-        let baseRate = 30;
-        if (m2 > 120) {
-            baseRate += (m2 - 120) * 1.5;
-        }
-
-        // Talent Logic
-        let specialists = 1;
-        if (m2 > 240) specialists = 3;
-        else if (m2 > 120) specialists = 2;
-        
-        let petFee = petsExtra.checked ? 30 : 0;
-        
-        let finalSpecialists = specialists + (petsExtra.checked ? 1 : 0);
-        
-        // Weekend Fee: $6 multiplied by the number of specialists
-        let weekendFee = weekendExtra.checked ? (6 * finalSpecialists) : 0; 
-        
-        talentCount.textContent = finalSpecialists;
-
-        // Displaying breakdown
-        baseCostEl.textContent = `$${baseRate.toFixed(2)}`;
-        extraTalentEl.textContent = `$${(petFee + weekendFee).toFixed(2)}`;
-        
-        const total = baseRate + petFee + weekendFee;
-        totalPriceEl.textContent = `$${total.toFixed(2)}`;
-
-        // Max surface message
-        if (m2 >= 300) {
-            maxMsg.classList.remove('hidden');
-        } else {
-            maxMsg.classList.add('hidden');
-        }
-    }
-
-    // Initialize calculation on load
-    calculate();
-</script>
 </body></html>
 <!DOCTYPE html>
 
@@ -823,6 +720,63 @@
             slides[nextIndex].classList.add('active', 'block', 'opacity-100');
         }, 50);
     }
+</script>
+    <script>
+    function calculate() {
+        // Elementos del DOM
+        const slider = document.getElementById('surface-slider');
+        const surfaceDisplay = document.getElementById('surface-display');
+        const talentCount = document.getElementById('talent-count');
+        const petsExtra = document.getElementById('pets-extra');
+        const weekendExtra = document.getElementById('weekend-extra');
+        const baseCostEl = document.getElementById('base-cost');
+        const extraTalentEl = document.getElementById('extra-talent-cost');
+        const totalPriceEl = document.getElementById('total-price');
+        const headerPriceEl = document.getElementById('header-price'); 
+        const maxMsg = document.getElementById('max-surface-msg');
+
+        // Lógica de cálculo
+        const m2 = parseInt(slider.value);
+        surfaceDisplay.textContent = m2;
+
+        let baseRate = 30;
+        if (m2 > 120) {
+            baseRate += (m2 - 120) * 1.5;
+        }
+
+        let specialists = 1;
+        if (m2 > 240) specialists = 3;
+        else if (m2 > 120) specialists = 2;
+        
+        let petFee = petsExtra.checked ? 30 : 0;
+        let finalSpecialists = specialists + (petsExtra.checked ? 1 : 0);
+        let weekendFee = weekendExtra.checked ? (6 * finalSpecialists) : 0; 
+        
+        // Actualizar UI
+        talentCount.textContent = finalSpecialists;
+        baseCostEl.textContent = `$${baseRate.toFixed(2)}`;
+        extraTalentEl.textContent = `$${(petFee + weekendFee).toFixed(2)}`;
+        
+        const total = baseRate + petFee + weekendFee;
+        const formattedTotal = `$${total.toFixed(2)}`;
+
+        // Sincronizar ambos precios
+        totalPriceEl.textContent = formattedTotal;
+        if (headerPriceEl) headerPriceEl.textContent = formattedTotal;
+
+        // Mensaje de superficie máxima
+        if (m2 >= 300) {
+            maxMsg.classList.remove('hidden');
+        } else {
+            maxMsg.classList.add('hidden');
+        }
+    }
+
+    // Escuchar cambios en inputs y selectores
+    document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculate));
+    
+    // Ejecutar al cargar
+    calculate();
 </script>
 </body>
 </html>
