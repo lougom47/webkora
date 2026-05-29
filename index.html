@@ -333,62 +333,73 @@
 </div>
 </div>
 </div>
-<section id="tipos-limpieza" class="bg-[#e8e3e0] py-20 px-6 overflow-hidden">
-    <div class="max-w-[1100px] mx-auto">
-        <div class="mb-16 text-center">
-            <h2 class="text-3xl md:text-5xl font-serif text-[#2D2926] tracking-tight mb-6">MODALIDADES DE LIMPIEZA</h2>
-            <div class="w-16 h-px bg-[#2D2926]/20 mx-auto"></div>
+<section id="tipos-limpieza" class="bg-[#e8e3e0] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4 pt-20 pb-24 overflow-hidden">
+    <div class="max-w-[1280px] mx-auto flex flex-col items-center">
+        <!-- Título -->
+        <div class="mb-16 w-full max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-serif text-[#2D2926] tracking-tight">MODALIDADES DE LIMPIEZA</h2>
+            <div class="w-16 h-px bg-[#2D2926]/20 mx-auto mt-6"></div>
         </div>
 
-        <div class="relative w-full min-h-[600px] md:min-h-[500px]">
-            
-            <div id="slide-0" class="carousel-card active flex flex-col md:flex-row gap-8 bg-[#F9F8F6] p-6 md:p-10 rounded-2xl border border-white/40 shadow-sm opacity-100 transition-all duration-700 ease-in-out absolute w-full">
-                <div class="w-full md:w-[42%] aspect-[4/3] md:aspect-auto rounded-xl overflow-hidden shadow-inner">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGkXeyqdSCCqvedbqps05NKqhp5ZskJ7NfX0xNmpLB-XERCPK91-o2Gd0q5vmjeTzwVrwtPgv6J2Srxss60x2pUXhj7Z0U7gn3UY51NNXN7PcQEK4XVHOUdpSJ8NYRhctwKiJASdowUXUqE_yV6U3ngLHJ3MKI2BdFkI4IaJHIKMLe_gfREJzzfikjOMWUgFE95L8Da3PpSjC3LhTv64tAW21EvoTLfVg4nvzQUOXnmHARHlbxCKGc0avNJ0M-j71MAVw02FvfbEHqVA" alt="Sinfonía de Orden" class="w-full h-full object-cover">
-                </div>
-                <div class="flex-1 flex flex-col justify-between py-2">
-                    <div class="space-y-4">
-                        <h3 class="text-3xl font-serif text-[#2D2926]">Sinfonía de Orden</h3>
-                        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2D2926]/50">(Mantenimiento Recurrente)</p>
-                        <ul class="space-y-4 text-sm text-[#2D2926]/80">
-                            <li class="flex gap-3"><span class="material-symbols-outlined text-[#C5A059]">auto_awesome</span> Incluye despolvado, aspirado y limpieza profunda de pisos.</li>
-                            <li class="flex gap-3"><span class="material-symbols-outlined text-[#C5A059]">air</span> Higienización de baños, cocina y organización básica.</li>
-                            <li class="flex gap-3"><span class="material-symbols-outlined text-[#2D2926]/30">key</span> No incluye sarro profundo ni post-obra.</li>
-                        </ul>
+        <!-- Contenedor del Carrusel -->
+        <div id="carousel-wrapper" class="relative w-full max-w-5xl">
+            <!-- Altura mínima garantizada para evitar saltos -->
+            <div class="relative w-full min-h-[600px] md:min-h-[450px]">
+                
+                <!-- Tarjeta 1: Sinfonía de Orden -->
+                <div id="slide-0" class="carousel-card active block opacity-100 transition-opacity duration-700 ease-in-out w-full absolute top-0 left-0">
+                    <div class="bg-[#F9F8F6] p-6 md:p-10 rounded-2xl shadow-sm border border-white/40 flex flex-col md:flex-row gap-8 items-center">
+                        <!-- Imagen más pequeña: w-[35%] en desktop -->
+                        <div class="w-full md:w-[35%] aspect-[4/3] rounded-xl overflow-hidden shadow-inner">
+                            <img alt="Sinfonía de Orden" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGkXeyqdSCCqvedbqps05NKqhp5ZskJ7NfX0xNmpLB-XERCPK91-o2Gd0q5vmjeTzwVrwtPgv6J2Srxss60x2pUXhj7Z0U7gn3UY51NNXN7PcQEK4XVHOUdpSJ8NYRhctwKiJASdowUXUqE_yV6U3ngLHJ3MKI2BdFkI4IaJHIKMLe_gfREJzzfikjOMWUgFE95L8Da3PpSjC3LhTv64tAW21EvoTLfVg4nvzQUOXnmHARHlbxCKGc0avNJ0M-j71MAVw02FvfbEHqVA"/>
+                        </div>
+                        <div class="w-full md:w-[65%] space-y-4 text-center md:text-left">
+                            <h3 class="text-3xl font-serif text-[#2D2926]">Sinfonía de Orden</h3>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2D2926]/50">(Mantenimiento Recurrente)</p>
+                            <ul class="space-y-3 text-left">
+                                <li class="flex gap-4"><span class="material-symbols-outlined text-[#C5A059]">auto_awesome</span><p class="text-sm text-[#2D2926]/80">Incluye: Despolvado, aspirado y limpieza profunda de pisos.</p></li>
+                                <li class="flex gap-4"><span class="material-symbols-outlined text-[#C5A059]">air</span><p class="text-sm text-[#2D2926]/80">Higienización de baños, cocina y organización básica.</p></li>
+                                <li class="flex gap-4 text-[#2D2926]/50"><span class="material-symbols-outlined">key</span><p class="text-sm">No incluye: Lavado de paredes, sarro profundo o post-obra.</p></li>
+                            </ul>
+                            <div class="pt-2">
+                                <a href="#cotizador" class="inline-block border border-[#2D2926] text-[#2D2926] py-3 px-8 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-[#2D2926] hover:text-white transition-all">AGENDAR DESDE $30</a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#cotizador" class="mt-8 block w-full md:w-max border border-[#2D2926] text-[#2D2926] py-3 px-10 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-[#2D2926] hover:text-white transition-all text-center">AGENDAR DESDE $30</a>
+                </div>
+
+                <!-- Tarjeta 2: Restauración Vital -->
+                <div id="slide-1" class="carousel-card hidden opacity-0 transition-opacity duration-700 ease-in-out w-full absolute top-0 left-0">
+                    <div class="bg-[#F9F8F6] p-6 md:p-10 rounded-2xl shadow-sm border border-white/40 flex flex-col md:flex-row gap-8 items-center">
+                        <div class="w-full md:w-[35%] aspect-[4/3] rounded-xl overflow-hidden shadow-inner">
+                            <img alt="Restauración Vital" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx6jd2adpCRfYazbPAwpiEiIhh_S_G59sVYVwhNt3rkoVwYhUjA4Z3Au9jEZsd-scY4KkWT0ZeLjmhl3TC2tgqmOr-tnsPWm8g1fU4bOt12ZWkc_QfNUVpj5NreJEhpYxTd8yPuyf2a-OouSMEbMPFdvS1zdqqBQfSh9w1y7kQ-mZ-DTK4a6-XqYL4a3_P1VpY_IJX20WfDY27iQNXfFvoUC8NVesjQZN-NcuX1OD50Ax1HnW40CFVW26fZ__xRJsW7r6bOdWAn7JYMg"/>
+                        </div>
+                        <div class="w-full md:w-[65%] space-y-4 text-center md:text-left">
+                            <h3 class="text-3xl font-serif text-[#2D2926]">Restauración Vital</h3>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2D2926]/50">(Limpieza Profunda)</p>
+                            <ul class="space-y-3 text-left">
+                                <li class="flex gap-4"><span class="material-symbols-outlined text-[#C2A679]">construction</span><p class="text-sm text-[#2D2926]/80">Remoción de sarro, cal y desengrase profundo.</p></li>
+                                <li class="flex gap-4"><span class="material-symbols-outlined text-[#C2A679]">diamond</span><p class="text-sm text-[#2D2926]/80">Desinfección total de losas, rieles y marcos.</p></li>
+                                <li class="flex gap-4"><span class="material-symbols-outlined text-[#C2A679]">home</span><p class="text-sm text-[#2D2926]/80"><strong>Renovación total:</strong> Ideal para mudanzas o periodos largos.</p></li>
+                            </ul>
+                            <div class="pt-2">
+                                <a href="https://wa.me/584122126159" target="_blank" class="inline-block bg-[#11B981] text-white py-3 px-8 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-[#059669] transition-all">COTIZAR WHATSAPP</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div id="slide-1" class="carousel-card hidden flex flex-col md:flex-row gap-8 bg-[#F9F8F6] p-6 md:p-10 rounded-2xl border border-white/40 shadow-sm opacity-0 transition-all duration-700 ease-in-out absolute w-full">
-                <div class="w-full md:w-[42%] aspect-[4/3] md:aspect-auto rounded-xl overflow-hidden shadow-inner">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx6jd2adpCRfYazbPAwpiEiIhh_S_G59sVYVwhNt3rkoVwYhUjA4Z3Au9jEZsd-scY4KkWT0ZeLjmhl3TC2tgqmOr-tnsPWm8g1fU4bOt12ZWkc_QfNUVpj5NreJEhpYxTd8yPuyf2a-OouSMEbMPFdvS1zdqqBQfSh9w1y7kQ-mZ-DTK4a6-XqYL4a3_P1VpY_IJX20WfDY27iQNXfFvoUC8NVesjQZN-NcuX1OD50Ax1HnW40CFVW26fZ__xRJsW7r6bOdWAn7JYMg" alt="Restauración Vital" class="w-full h-full object-cover">
-                </div>
-                <div class="flex-1 flex flex-col justify-between py-2">
-                    <div class="space-y-4">
-                        <h3 class="text-3xl font-serif text-[#2D2926]">Restauración Vital</h3>
-                        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2D2926]/50">(Intervención Profunda / Choque)</p>
-                        <ul class="space-y-4 text-sm text-[#2D2926]/80">
-                            <li class="flex gap-3"><span class="material-symbols-outlined text-[#C2A679]">construction</span> Remoción mecánica avanzada de sarro y desengrase profundo.</li>
-                            <li class="flex gap-3"><span class="material-symbols-outlined text-[#C2A679]">diamond</span> Desinfección total de losas, rieles y marcos metálicos.</li>
-                            <li class="flex gap-3"><span class="material-symbols-outlined text-[#C2A679]">home</span> Formato ideal para mudanzas y renovación total.</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/584122126159" class="mt-8 block w-full md:w-max bg-[#10B981] text-white py-3 px-10 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-[#059669] transition-all text-center shadow-lg">COTIZAR WHATSAPP</a>
-                </div>
+            <!-- Navegación: Flechas -->
+            <div class="flex justify-center items-center gap-6 mt-12">
+                <button onclick="moveCarousel(-1)" class="bg-white p-4 rounded-full shadow-md text-[#2D2926] hover:bg-gray-100 transition-colors">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <span class="text-2xl text-[#2D2926]/30">.</span>
+                <button onclick="moveCarousel(1)" class="bg-white p-4 rounded-full shadow-md text-[#2D2926] hover:bg-gray-100 transition-colors">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
             </div>
-
-            <button onclick="changeSlide(-1)" class="absolute left-0 top-[40%] -translate-x-1/2 md:translate-x-0 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border border-black/5 hover:scale-105 transition-all z-20">
-                <span class="material-symbols-outlined">chevron_left</span>
-            </button>
-            <button onclick="changeSlide(1)" class="absolute right-0 top-[40%] translate-x-1/2 md:translate-x-0 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border border-black/5 hover:scale-105 transition-all z-20">
-                <span class="material-symbols-outlined">chevron_right</span>
-            </button>
-        </div>
-
-        <div class="flex justify-center gap-3 mt-12">
-            <div id="dot-0" class="h-2 w-8 rounded-full bg-[#2D2926] transition-all duration-300"></div>
-            <div id="dot-1" class="h-2 w-2 rounded-full bg-[#2D2926]/20 transition-all duration-300"></div>
         </div>
     </div>
 </section>
