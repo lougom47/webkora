@@ -33,6 +33,7 @@
         const baseCostEl = document.getElementById('base-cost');
         const extraTalentEl = document.getElementById('extra-talent-cost');
         const totalPriceEl = document.getElementById('total-price');
+        const headerPriceEl = document.getElementById('header-price'); // El precio dorado de arriba
         const maxMsg = document.getElementById('max-surface-msg');
 
         const m2 = parseInt(slider.value);
@@ -63,7 +64,13 @@
         extraTalentEl.textContent = `$${(petFee + weekendFee).toFixed(2)}`;
         
         const total = baseRate + petFee + weekendFee;
-        totalPriceEl.textContent = `$${total.toFixed(2)}`;
+        const formattedTotal = `$${total.toFixed(2)}`;
+
+        // Sincronizar ambos precios
+        totalPriceEl.textContent = formattedTotal;
+        if (headerPriceEl) {
+            headerPriceEl.textContent = formattedTotal;
+        }
 
         // Max surface message
         if (m2 >= 300) {
@@ -75,6 +82,7 @@
 
     // Initialize calculation on load
     calculate();
+</script>
    // Script para resaltar botones de la nueva barra
     window.addEventListener('scroll', () => {
         let currentActiveSection = "";
