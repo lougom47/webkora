@@ -824,27 +824,5 @@
         }, 50);
     }
 </script>
-    <script>
-    function calculate() {
-        const slider = document.getElementById('surface-slider');
-        const m2 = parseInt(slider.value);
-        const petsExtra = document.getElementById('pets-extra');
-        const weekendExtra = document.getElementById('weekend-extra');
-
-        let baseRate = 30 + ((m2 > 120) ? (m2 - 120) * 1.5 : 0);
-        let specialists = (m2 > 240) ? 3 : (m2 > 120 ? 2 : 1);
-        let petFee = petsExtra.checked ? 30 : 0;
-        let finalSpecialists = specialists + (petsExtra.checked ? 1 : 0);
-        let weekendFee = weekendExtra.checked ? (6 * finalSpecialists) : 0; 
-        let total = baseRate + petFee + weekendFee;
-
-        // Actualizar elementos
-        document.getElementById('surface-display').textContent = m2;
-        document.getElementById('talent-count').textContent = finalSpecialists;
-        document.getElementById('header-price').textContent = '$' + total.toFixed(2);
-        document.getElementById('total-price').textContent = '$' + total.toFixed(2);
-    }
-    calculate();
-</script>
 </body>
 </html>
