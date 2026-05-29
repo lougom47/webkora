@@ -82,26 +82,24 @@
 
     // Initialize calculation on load
     calculate();
-</script>
-   // Script para resaltar botones de la nueva barra
-    window.addEventListener('scroll', () => {
-        let currentActiveSection = "";
-        document.querySelectorAll('section[id], main[id]').forEach(section => {
-            if (window.scrollY >= section.offsetTop - 200) {
-                currentActiveSection = section.getAttribute('id');
-            }
-        });
-
-        document.querySelectorAll('nav a').forEach(link => {
-            // Ponemos el color base de la nueva barra
+<script>
+    // Script para resaltar botones de la nueva barra
+    window.addEventListener('scroll', () => { 
+        let currentActiveSection = ""; 
+        document.querySelectorAll('section[id], main[id]').forEach(section => { 
+            if (window.scrollY >= section.offsetTop - 200) { 
+                currentActiveSection = section.getAttribute('id'); 
+            } 
+        }); 
+        document.querySelectorAll('nav a').forEach(link => { 
+            // Ponemos el color base de la nueva barra 
             link.classList.remove('text-[#c4a47c]'); 
-            link.classList.add('text-[#4A5D53]');
-            
-            // Si coincide con la sección, lo ponemos dorado
-            if (link.getAttribute('href') === `#${currentActiveSection}`) {
-                link.classList.add('text-[#c4a47c]');
-            }
-        });
+            link.classList.add('text-[#4A5D53]'); 
+            // Si coincide con la sección, lo ponemos dorado 
+            if (link.getAttribute('href') === `#${currentActiveSection}`) { 
+                link.classList.add('text-[#c4a47c]'); 
+            } 
+        }); 
     });
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Playfair+Display:italic,wght@400;700&amp;display=swap" rel="stylesheet"/>
@@ -306,12 +304,15 @@
                         <span class="text-xs text-charcoal-grey/40">USD</span>
                     </div>
                 </div>
-                <div class="w-full md:w-[280px]">
-                    <a class="block w-full bg-emerald-green text-white py-4 rounded-lg font-bold text-sm uppercase tracking-widest hover:brightness-105 transition-all shadow-md text-center" href="https://wa.me/584122126159" target="_blank">
-                        RESERVAR
-                    </a>
-                </div>
-            </div>
+                <div class="w-full md:w-auto">
+        <a class="inline-block w-full md:w-auto bg-emerald-green text-white py-3 px-10 rounded-lg font-bold text-sm uppercase tracking-widest hover:brightness-105 transition-all shadow-md text-center" href="https://wa.me/584122126159" target="_blank">
+            RESERVAR
+        </a>
+        <p class="text-center text-[10px] text-charcoal-grey/40 mt-2 uppercase tracking-tighter">
+            Respuesta inmediata vía WhatsApp
+        </p>
+    </div>
+</div>
         </div>
     </form>
 </div>
