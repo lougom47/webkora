@@ -151,7 +151,7 @@
 </header>
 <main id="cotizador" class="max-w-[1280px] mx-auto min-h-[1024px] pt-12">
     <div class="scale-105 origin-top transform">
-      <!-- Hero Section -->
+  <!-- Hero Section -->
 <section class="grid lg:grid-cols-1 gap-section-gap py-section-gap items-start px-margin-desktop">
     <!-- 1. Contenedor ahora transparente -->
     <div class="col-span-full p-12 -mt-[35px]">
@@ -162,67 +162,119 @@
         </div>
 
         <!-- Cotizador/Calculator Card (Wider) -->
-       <div class="lg:col-span-7 bg-card-linen backdrop-blur-md p-10 rounded-xl soft-shadow border border-white/40" id="calculator-section">
-    <div class="flex justify-between items-center mb-8">
-    <h3 class="font-bold text-xl uppercase tracking-wider text-[#2D2926]">Cotizador</h3>
-    
-    <div class="bg-[#2D2926] text-white px-5 py-2 rounded-full font-bold text-sm shadow-md flex items-center gap-3">
-        <span><span id="surface-display">120</span> m²</span>
-        <span class="text-[#C5A059]" id="header-price">$30.00</span>
-    </div>
-</div>
-
-<form class="space-y-6" oninput="calculate()">
-    <div class="grid md:grid-cols-2 gap-6 items-end mb-8">
-        <div class="space-y-3">
-            <label class="text-xs uppercase text-[#2D2926]/60 font-bold block">Superficie</label>
-            <input class="w-full h-1 bg-[#2D2926]/20 appearance-none rounded-full accent-[#2D2926]" id="surface-slider" max="300" min="40" type="range" value="120"/>
-            <div class="flex justify-between text-[10px] text-[#2D2926]/40 uppercase">
-                <span>40m²</span> <span>300m²</span>
+        <div class="lg:col-span-7 bg-card-linen backdrop-blur-md p-10 rounded-xl soft-shadow border border-white/40" id="calculator-section">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="font-bold text-xl uppercase tracking-wider text-charcoal-grey">Cotizador - Limpieza Residencial en Caracas</h3>
+                <div class="text-right">
+                    <span class="text-2xl font-bold text-charcoal-grey" id="surface-display">120</span>
+                    <span class="text-charcoal-grey/60 ml-1">m²</span>
+                </div>
             </div>
-        </div>
-        <div class="bg-white/40 p-4 rounded-lg flex items-center border border-[#2D2926]/10">
-            <span class="material-symbols-outlined mr-3 text-[#2D2926]">groups</span>
-            <div>
-                <p class="text-sm font-bold text-[#2D2926]"><span id="talent-count">1</span> Especialista(s)</p>
-                <p class="text-[10px] text-[#2D2926]/60">Talento KORA certificado</p>
-            </div>
+            
+            <form class="space-y-6" oninput="calculate()">
+                <div class="grid md:grid-cols-2 gap-gutter items-end mb-8">
+                    <div class="space-y-3">
+                        <label class="text-label-sm uppercase text-charcoal-grey/60 block">Superficie</label>
+                        <input class="w-full h-1 bg-charcoal-grey/20 appearance-none rounded-full accent-charcoal-grey" id="surface-slider" max="300" min="40" type="range" value="120"/>
+                        <div class="flex justify-between text-[10px] text-charcoal-grey/40">
+                            <span class="">40m²</span>
+                            <span class="">300m²</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/40 backdrop-blur-sm p-4 rounded-lg flex items-center justify-between border border-charcoal-grey/10 h-fit mb-[4px]">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-charcoal-grey">groups</span>
+                            <div>
+                                <p class="text-sm font-bold text-charcoal-grey"><span class="" id="talent-count">1</span> Especialista(s)</p>
+                                <p class="text-[11px] text-charcoal-grey/60 leading-tight">Talento KORA certificado</p>
+                            </div>
+                        </div>
+                        <div class="relative tooltip">
+                            <span class="material-symbols-outlined text-charcoal-grey/40 cursor-help text-lg">info</span>
+                            <div class="tooltip-content hidden absolute bottom-full right-0 mb-2 w-48 bg-charcoal-grey text-white text-[10px] p-2 rounded shadow-xl z-10 leading-normal">Incluye: productos de limpieza, uniforme, traslado y alimentación del talento.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-gutter mb-8">
+                    <!-- Sensory Signature -->
+                    <div class="space-y-2">
+                        <label class="text-label-sm uppercase text-charcoal-grey/60 block">Firma Sensorial</label>
+                        <select class="w-full bg-white/60 border border-charcoal-grey/20 rounded p-3 text-sm focus:ring-1 focus:ring-matte-gold outline-none text-charcoal-grey">
+                            <option>Nordic Pine Essence</option>
+                            <option>Pure Marine Breeze</option>
+                            <option>Cherry Blossom</option>
+                        </select>
+                        <p class="text-[10px] text-charcoal-grey/50 italic leading-relaxed">
+                            Nuestras bases desinfectantes de alta gama eliminan patógenos dejando una estela de pureza.
+                        </p>
+                    </div>
+                    <!-- Extras -->
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 group cursor-pointer">
+                            <input class="mt-1 rounded border-charcoal-grey/30 text-charcoal-grey focus:ring-charcoal-grey h-4 w-4" id="pets-extra" type="checkbox"/>
+                            <div>
+                                <span class="text-sm font-medium text-charcoal-grey">Mascotas (+$30)</span>
+                                <p class="text-[10px] text-charcoal-grey/50">Productos especiales y +1 talento.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 group cursor-pointer">
+                            <input class="rounded border-charcoal-grey/30 text-charcoal-grey focus:ring-charcoal-grey h-4 w-4" type="checkbox"/>
+                            <div class="flex items-center gap-2 relative group/art">
+                                <span class="text-sm font-medium text-charcoal-grey">Objetos de Arte</span>
+                                <span class="material-symbols-outlined text-[16px] text-charcoal-grey/40 cursor-help">info</span>
+                                <div class="hidden group-hover/art:block absolute bottom-full left-0 mb-2 w-64 bg-charcoal-grey text-white text-[10px] p-3 rounded shadow-xl z-20 leading-relaxed">
+                                    Incluye esculturas, cuadros, figuras de porcelana, antigüedades o piezas decorativas de alto valor. Nuestro personal tiene instrucciones estrictas de no manipular, limpiar ni mover estos elementos para evitar accidentes o daños irreparables.
+                                </div>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 group cursor-pointer">
+                            <input class="rounded border-charcoal-grey/30 text-charcoal-grey focus:ring-charcoal-grey h-4 w-4" id="weekend-extra" type="checkbox"/>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium text-charcoal-grey">Fin de semana/feriado</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="hidden text-xs text-charcoal-grey font-medium italic border-t border-charcoal-grey/10 pt-4 mb-4" id="max-surface-msg">
+                    Para superficies mayores a 300m², contáctenos vía WhatsApp para una cotización personalizada.
+                </div>
+
+                <div class="pt-6 border-t border-charcoal-grey/20">
+                    <div class="flex flex-wrap justify-between gap-x-8 gap-y-2 mb-6">
+                        <div class="flex gap-6">
+                            <div class="text-[11px] text-charcoal-grey/60">
+                                <span class="block opacity-70">Inversión Base / Mts</span>
+                                <span class="text-charcoal-grey font-semibold" id="base-cost">$30.00</span>
+                            </div>
+                            <div class="text-[11px] text-charcoal-grey/60">
+                                <span class="block opacity-70">Cargos Adicionales</span>
+                                <span class="text-charcoal-grey font-semibold" id="extra-talent-cost">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-gutter">
+                        <div class="flex flex-col">
+                            <p class="text-label-sm uppercase text-charcoal-grey/40 mb-1">Inversión Estimada</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-4xl font-bold text-charcoal-grey tracking-tight" id="total-price">$30.00</span>
+                                <span class="text-xs text-charcoal-grey/40">USD</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 md:max-w-[280px] w-full">
+                            <a class="block w-full bg-emerald-green text-white py-4 rounded-lg font-bold text-label-sm uppercase tracking-widest hover:brightness-105 transition-all shadow-md text-center" href="https://wa.me/584122126159" target="_blank">
+                                RESERVAR
+                            </a>
+                            <p class="text-center text-[10px] text-charcoal-grey/40 mt-2 uppercase tracking-tighter">
+                                Respuesta inmediata vía WhatsApp
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-
-    <div class="space-y-6">
-        <div>
-            <label class="text-xs uppercase text-[#2D2926]/60 font-bold block mb-2">Firma Sensorial</label>
-            <select class="w-full bg-white/60 border border-[#2D2926]/20 rounded p-3 text-sm outline-none">
-                <option>Nordic Pine Essence</option>
-                <option>Pure Marine Breeze</option>
-            </select>
-        </div>
-
-        <div class="space-y-3">
-            <label class="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" id="pets-extra" class="h-5 w-5 rounded border-[#2D2926]/30 accent-[#2D2926]">
-                <span class="text-sm font-bold text-[#2D2926]">Mascotas (+$30)</span>
-            </label>
-            <label class="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" id="weekend-extra" class="h-5 w-5 rounded border-[#2D2926]/30 accent-[#2D2926]">
-                <span class="text-sm font-bold text-[#2D2926]">Fin de semana/feriado</span>
-            </label>
-        </div>
-    </div>
-
-    <div class="pt-6 border-t border-[#2D2926]/20 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div>
-            <p class="text-[10px] uppercase text-[#2D2926]/40 font-bold mb-1">Inversión Estimada</p>
-            <span class="text-4xl font-bold text-[#2D2926]" id="total-price">$30.00</span>
-            <span class="text-xs text-[#2D2926]/40">USD</span>
-        </div>
-        <div class="w-full md:w-auto">
-            <a href="https://wa.me/584122126159" target="_blank" class="inline-block w-full md:w-auto bg-[#10B981] text-white py-3 px-8 rounded-lg font-bold text-sm uppercase tracking-widest text-center">RESERVAR</a>
-        </div>
-    </div>
-</form>
-</div>
 </section>
 <section id="tipos-limpieza" class="bg-[#e8e3e0] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4 pt-20 pb-24 overflow-hidden">
     <div class="max-w-[1280px] mx-auto flex flex-col items-center">
