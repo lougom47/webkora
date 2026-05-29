@@ -76,30 +76,23 @@
 
     // Initialize calculation on load
     calculate();
-        // Sistema para resaltar automáticamente el botón del menú activo
-    const menuLinks = document.querySelectorAll('nav a');
-    const webSections = document.querySelectorAll('#cotizador, #tipos-limpieza, #preguntas');
-
+   // Script para resaltar botones de la nueva barra
     window.addEventListener('scroll', () => {
         let currentActiveSection = "";
-        
-        webSections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            // Margen de 150px para compensar el espacio que ocupa la barra fija de arriba
-            if (window.scrollY >= sectionTop - 150) {
+        document.querySelectorAll('section[id], main[id]').forEach(section => {
+            if (window.scrollY >= section.offsetTop - 200) {
                 currentActiveSection = section.getAttribute('id');
             }
         });
 
-       menuLinks.forEach(link => {
-            // Primero "apagamos" todos los botones (letras normales y sin línea)
-            link.classList.remove('font-bold', 'text-black', 'border-b-4', 'border-[#11b981]', 'text-charcoal-grey', 'border-b-2');
-            link.classList.add('text-charcoal-grey/70', 'font-medium');
+        document.querySelectorAll('nav a').forEach(link => {
+            // Ponemos el color base de la nueva barra
+            link.classList.remove('text-[#c4a47c]'); 
+            link.classList.add('text-[#4A5D53]');
             
-            // Si el botón coincide con la sección en pantalla, lo "encendemos"
+            // Si coincide con la sección, lo ponemos dorado
             if (link.getAttribute('href') === `#${currentActiveSection}`) {
-                link.classList.remove('text-charcoal-grey/70', 'font-medium');
-                link.classList.add('font-bold', 'text-black', 'border-b-4', 'border-[#11b981]');
+                link.classList.add('text-[#c4a47c]');
             }
         });
     });
