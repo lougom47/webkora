@@ -33,46 +33,37 @@
         const baseCostEl = document.getElementById('base-cost');
         const extraTalentEl = document.getElementById('extra-talent-cost');
         const totalPriceEl = document.getElementById('total-price');
-        const headerPriceEl = document.getElementById('header-price'); // El precio dorado de arriba
+        const headerPriceEl = document.getElementById('header-price'); 
         const maxMsg = document.getElementById('max-surface-msg');
 
         const m2 = parseInt(slider.value);
         surfaceDisplay.textContent = m2;
 
-        // Pricing Logic: $30 up to 120m2. $1.5 per additional m2.
         let baseRate = 30;
         if (m2 > 120) {
             baseRate += (m2 - 120) * 1.5;
         }
 
-        // Talent Logic
         let specialists = 1;
         if (m2 > 240) specialists = 3;
         else if (m2 > 120) specialists = 2;
         
         let petFee = petsExtra.checked ? 30 : 0;
-        
         let finalSpecialists = specialists + (petsExtra.checked ? 1 : 0);
-        
-        // Weekend Fee: $6 multiplied by the number of specialists
         let weekendFee = weekendExtra.checked ? (6 * finalSpecialists) : 0; 
         
         talentCount.textContent = finalSpecialists;
 
-        // Displaying breakdown
         baseCostEl.textContent = `$${baseRate.toFixed(2)}`;
         extraTalentEl.textContent = `$${(petFee + weekendFee).toFixed(2)}`;
         
         const total = baseRate + petFee + weekendFee;
         const formattedTotal = `$${total.toFixed(2)}`;
 
-        // Sincronizar ambos precios
+        // Actualizamos AMBOS precios
         totalPriceEl.textContent = formattedTotal;
-        if (headerPriceEl) {
-            headerPriceEl.textContent = formattedTotal;
-        }
+        headerPriceEl.textContent = formattedTotal;
 
-        // Max surface message
         if (m2 >= 300) {
             maxMsg.classList.remove('hidden');
         } else {
@@ -80,9 +71,10 @@
         }
     }
 
-    // Initialize calculation on load
+    // Inicializar y detectar cambios en inputs
+    document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculate));
     calculate();
-<script>
+</script>
     // Script para resaltar botones de la nueva barra
     window.addEventListener('scroll', () => { 
         let currentActiveSection = ""; 
@@ -226,9 +218,8 @@
     
     <!-- Burbuja gris unificada -->
     <div class="bg-[#2D2926] text-white px-5 py-2 rounded-full font-bold text-sm shadow-md flex items-center gap-3">
-        <span><span id="surface-display">120</span> m²</span>
-        <span class="text-[#C5A059]" id="header-price">$30.00</span>
-    </div>
+    <span><span id="surface-display">120</span> m²</span>
+    <span class="text-[#C5A059]" id="header-price">$30.00</span>
 </div>
 
     <form class="space-y-6" oninput="calculate()">
