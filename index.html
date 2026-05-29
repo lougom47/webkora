@@ -333,22 +333,24 @@
 </div>
 </div>
 </div>
-</section>
 <section id="tipos-limpieza" class="bg-[#e8e3e0] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4 pt-12 pb-24">
     <div class="max-w-[1280px] mx-auto flex flex-col items-center">
+        <!-- Título -->
         <div class="mb-16 w-full max-w-4xl text-center">
             <div class="border-t border-charcoal-grey/20 mb-8"></div>
             <h2 class="text-3xl md:text-5xl font-accent text-charcoal-grey">MODALIDADES DE LIMPIEZA</h2>
             <div class="border-b border-charcoal-grey/20 mt-8"></div>
         </div>
 
-        <div id="carousel-container" class="relative w-full max-w-4xl px-4 md:px-16 flex flex-col items-center">
+        <!-- Carrusel con altura mínima garantizada -->
+        <div id="carousel-container" class="relative w-full max-w-4xl px-4 md:px-16 flex flex-col items-center min-h-[550px] md:min-h-[450px]">
             
-            <div class="carousel-card active block opacity-100 transition-opacity duration-700 ease-in-out w-full">
+            <!-- Tarjeta 1: Sinfonía de Orden -->
+            <div class="carousel-card active block opacity-100 transition-opacity duration-700 ease-in-out w-full absolute top-0">
                 <div class="bg-white/60 backdrop-blur-lg p-6 md:p-10 rounded-3xl shadow-sm border border-white/40 grid md:grid-cols-2 gap-8 items-center">
                     <img alt="Sinfonía de Orden" class="w-full h-[300px] object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGkXeyqdSCCqvedbqps05NKqhp5ZskJ7NfX0xNmpLB-XERCPK91-o2Gd0q5vmjeTzwVrwtPgv6J2Srxss60x2pUXhj7Z0U7gn3UY51NNXN7PcQEK4XVHOUdpSJ8NYRhctwKiJASdowUXUqE_yV6U3ngLHJ3MKI2BdFkI4IaJHIKMLe_gfREJzzfikjOMWUgFE95L8Da3PpSjC3LhTv64tAW21EvoTLfVg4nvzQUOXnmHARHlbxCKGc0avNJ0M-j71MAVw02FvfbEHqVA"/>
                     <div class="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
-                        <h3 class="text-3xl font-bold text-charcoal-grey leading-tight">Sinfonía de Orden</h3>
+                        <h3 class="text-3xl font-bold text-charcoal-grey">Sinfonía de Orden</h3>
                         <p class="text-[14px] uppercase tracking-widest text-[#4A5D53] font-medium">(Mantenimiento Recurrente)</p>
                         <ul class="space-y-3 pt-2 w-full text-left">
                             <li class="flex gap-3"><span class="material-symbols-outlined text-matte-gold">auto_awesome</span><p class="text-sm text-charcoal-grey/80">Incluye: Despolvado, aspirado y limpieza profunda de pisos.</p></li>
@@ -360,11 +362,12 @@
                 </div>
             </div>
 
+            <!-- Tarjeta 2: Restauración Vital -->
             <div class="carousel-card hidden opacity-0 transition-opacity duration-700 ease-in-out w-full absolute top-0">
                 <div class="bg-white/60 backdrop-blur-lg p-6 md:p-10 rounded-3xl shadow-sm border border-white/40 grid md:grid-cols-2 gap-8 items-center">
                     <img alt="Restauración Vital" class="w-full h-[300px] object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx6jd2adpCRfYazbPAwpiEiIhh_S_G59sVYVwhNt3rkoVwYhUjA4Z3Au9jEZsd-scY4KkWT0ZeLjmhl3TC2tgqmOr-tnsPWm8g1fU4bOt12ZWkc_QfNUVpj5NreJEhpYxTd8yPuyf2a-OouSMEbMPFdvS1zdqqBQfSh9w1y7kQ-mZ-DTK4a6-XqYL4a3_P1VpY_IJX20WfDY27iQNXfFvoUC8NVesjQZN-NcuX1OD50Ax1HnW40CFVW26fZ__xRJsW7r6bOdWAn7JYMg"/>
                     <div class="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
-                        <h3 class="text-3xl font-bold text-charcoal-grey leading-tight">Restauración Vital</h3>
+                        <h3 class="text-3xl font-bold text-charcoal-grey">Restauración Vital</h3>
                         <p class="text-[14px] uppercase tracking-widest text-[#4A5D53] font-medium">(Limpieza Profunda)</p>
                         <ul class="space-y-3 pt-2 w-full text-left">
                             <li class="flex gap-3"><span class="material-symbols-outlined text-matte-gold">construction</span><p class="text-sm text-charcoal-grey/80">Remoción de sarro, cal y desengrase profundo.</p></li>
@@ -376,14 +379,15 @@
                 </div>
             </div>
             
-            <div class="flex justify-center items-center gap-6 mt-12 w-full">
+            <!-- Navegación -->
+            <div class="absolute -bottom-20 flex justify-center items-center gap-6 w-full">
                 <button onclick="moveCarousel(-1)" class="bg-white p-3 rounded-full shadow-md text-charcoal-grey hover:bg-gray-100 transition-colors">←</button>
                 <span class="text-2xl text-charcoal-grey/30">._</span>
                 <button onclick="moveCarousel(1)" class="bg-white p-3 rounded-full shadow-md text-charcoal-grey hover:bg-gray-100 transition-colors">→</button>
             </div>
         </div>
 
-        <p class="text-center mt-12 font-montserrat text-sm text-charcoal-grey/60 uppercase tracking-widest px-4">
+        <p class="text-center mt-24 font-montserrat text-sm text-charcoal-grey/60 uppercase tracking-widest px-4">
             Ambos servicios incluyen alimentación y transporte terrestre de ida/vuelta e insumos premium.
         </p>
     </div>
