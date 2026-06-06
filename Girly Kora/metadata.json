@@ -1,6 +1,0 @@
-{
-  "name": "KORA",
-  "description": "Exclusivo servicio de limpieza de mantenimiento con estética sofisticada y fresca.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
